@@ -1,0 +1,17 @@
+name: Latest Changes
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  latest-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker://tiangolo/latest-changes:0.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

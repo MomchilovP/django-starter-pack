@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,14 +27,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'unfold',
-    "unfold.contrib.filters",   
-    "unfold.contrib.forms",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,35 +127,31 @@ UNFOLD = {
     "SITE_HEADER": os.environ.get("SITE_HEADER", "Starter Pack"),
     "SITE_SYMBOL": "cloud",
     "SHOW_HISTORY": False,
-    "ENVIRONMENT": "core.environment_callback",
+    "ENVIRONMENT": "core.utils.environment_callback",
     # "LOGIN": {
     #     "image": lambda request: static("sample/login-bg.jpg"),
     #     "redirect_after": lambda request: reverse_lazy("admin:APP_MODEL_changelist"),
     # },
     "SIDEBAR": {
         "show_search": True,  # Search in applications and models names
-        # "show_all_applications": False,  # Dropdown with all applications and models
+        "show_all_applications": False,
         "navigation": [
             {
-                "title": "Navigation",
+                "title": _("Navigation"),
                 "separator": True,  # Top border
                 "items": [
                     {
-                        "title": "Users",
-                        "icon": "people",
-                        "link": reverse_lazy('admin:auth_user_changelist')
+                        "title": _("Users"),
+                        "icon": "person",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": _("Groups"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
                     },
                 ],
             },
         ],
     },
 }
-
-def environment_callback(request):
-    """
-    Callback has to return a list of two values represeting text value and the color
-    type of the label displayed in top right corner.
-    """
-    if DEBUG:
-        return ["Dev", "info"]
-    return ["Prod", "danger"] # info, danger, warning, success

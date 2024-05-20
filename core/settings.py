@@ -25,6 +25,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'unfold',
+    "unfold.contrib.filters",   
+    "unfold.contrib.forms",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,10 +122,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Visit: https://github.com/unfoldadmin/django-unfold
 
 UNFOLD = {
-    "SITE_TITLE": os.environ.get("SITE_TITLE", "Starter Pack"),
-    "SITE_HEADER": os.environ.get("SITE_HEADER", "Prod ready django kit"),
-    "SITE_SYMBOL": "cloud",  # symbol from icon set
-    "SHOW_HISTORY": False, # show/hide "History" button, default: True
+    "SITE_TITLE": os.environ.get("SITE_TITLE", "Prod Ready Django Kit"),
+    "SITE_HEADER": os.environ.get("SITE_HEADER", "Starter Pack"),
+    "SITE_SYMBOL": "cloud",
+    "SHOW_HISTORY": False,
     "ENVIRONMENT": "core.environment_callback",
     # "LOGIN": {
     #     "image": lambda request: static("sample/login-bg.jpg"),
@@ -138,16 +140,9 @@ UNFOLD = {
                 "separator": True,  # Top border
                 "items": [
                     {
-                        "title": "Dashboard",
-                        "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
-                        "link": reverse_lazy("admin:index"),
-                        "badge": "sample_app.badge_callback",
-                        "permission": lambda request: request.user.is_superuser,
-                    },
-                    {
                         "title": "Users",
                         "icon": "people",
-                        "link": reverse_lazy("admin:users_user_changelist"),
+                        "link": reverse_lazy('admin:auth_user_changelist')
                     },
                 ],
             },

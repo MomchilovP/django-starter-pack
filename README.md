@@ -17,3 +17,7 @@ A minimal but functional starter point for a new Django application that has pre
 
 * fixed readme for the latest changes ci. PR [#3](https://github.com/MomchilovP/django-starter-pack/pull/3) by [@MomchilovP](https://github.com/MomchilovP).
 :
+
+#### Internal
+
+* cleaned up settings and added more commands to makefile. PR [#4](https://github.com/MomchilovP/django-starter-pack/pull/4) by [@MomchilovP](https://github.com/MomchilovP).

@@ -7,3 +7,9 @@ migrate:
 
 test:
 	@python manage.py test
+
+shell:
+	@python manage.py shell
+
+static:
+	@python manage.py collectstatic

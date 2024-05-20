@@ -13,3 +13,5 @@ A minimal but functional starter point for a new Django application that has pre
 
 ### It is fully ready for production!
 
+### Latest Changes:
+

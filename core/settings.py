@@ -95,6 +95,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+# TODO:
+#  cnfigure static and media files depending on the nevironment
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [ BASE_DIR / 'static' ]

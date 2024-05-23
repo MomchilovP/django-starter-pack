@@ -1,6 +1,6 @@
 # Django Starter Pack
 
-A minimal but functional starter point for a new Django application that has pre-configured:
+A minimal but functional starter point for a new Django application that his pre-configured with:
 - Social Authentication
 - Templating and HTMX integration
 - Modernized admin panel

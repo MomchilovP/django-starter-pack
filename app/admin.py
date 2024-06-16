@@ -12,9 +12,11 @@ from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationFo
 admin.site.unregister(User)
 admin.site.unregister(Group)
 
+
 @admin.register(Group)
 class GroupAdmin(BaseGroupAdmin, ModelAdmin):
     pass
+
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin, ModelAdmin):
@@ -51,9 +53,9 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
         "groups",
         "user_permissions",
     )
-    
+
     readonly_fields = ["last_login", "date_joined"]
-    
+
     @display(description=_("User"), header=True)
     def display_header(self, instance: User):
         return instance.username, instance.email

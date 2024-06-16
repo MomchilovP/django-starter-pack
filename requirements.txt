@@ -2,5 +2,5 @@ asgiref==3.8.1
 Django==5.0.6
 sqlparse==0.5.0
 tzdata==2024.1
-django-unfold==0.23.0
+django-unfold==0.26.0
 python-dotenv==1.0.1

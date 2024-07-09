@@ -11,7 +11,7 @@ A minimal but functional starter point for a new Django application that his pre
 - Gunicorn WSGI
 - Ruff formatter
 
-### It is fully ready for production!
+### WIP
 
 ### Latest Changes
 
